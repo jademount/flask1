@@ -1,0 +1,15 @@
+1.run test.py to create database file and insert user infos into the sqlite3 db
+2.run app.py to start the flask web server
+3.testing the web server in postman, before posting and getting new items,
+submit the authentication info (username and password)
+4.flowing chart:
+
+  post an item with name and price(data=Item.parser.parse_args()) in postman
+  -> item added to list of items
+  -> using get verb to get the item
+  -> because of @jwt_required decorator before def get(), the server requires authentication
+  -> jwt looks into security.py for authenticate and identity method
+  -> authenticate method uses the find_by_username method in User class to see if the user is
+     in the database and check if the pass provided in the http post is the same as in the
+     database.
+  -> not sure what identity method in security.py does with the keyword "payload"
