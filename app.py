@@ -9,7 +9,7 @@ from resources.store import Store, StoreList
 
 app = Flask(__name__)
 app.config['PROPAGATE_EXCEPTIONS'] = True # To allow flask propagating exception even if debug is set to false on app
-app.config['SQLALCHEMY_DATABASE_URI'] = os.eviron.get('DATABASE_URL','sqlite:///data.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL','sqlite:///data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATION'] = False #disables flask_sqlalchemy's tracking
                                                     #SQLAlchemy tracking is still working
 app.secret_key = 'jose'
