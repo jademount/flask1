@@ -14,6 +14,7 @@ class Store(Resource):
         store = StoreModel(name)
         try:
             store.save_to_db()
+            return store.json()
         except:
             return {'message' : 'An error occured while creating the store'}, 500
 
